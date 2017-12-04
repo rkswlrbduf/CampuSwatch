@@ -28,4 +28,6 @@ dependencies {
     implementation 'com.android.support:design:27.0.2'
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.squareup.picasso:picasso:2.3.3'
 }

@@ -1,34 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@android:color/transparent"
-    tools:context="home.kyuyeol.campuswatch.MainActivity">
+    android:layout_height="match_parent">
 
-    <include layout="@layout/activity_appbar" />
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:scrollIndicators="none"
-        android:layout_gravity="bottom"
-        android:background="#99ffffff"
-        android:fitsSystemWindows="true"
-        android:elevation="3dp"></android.support.design.widget.TabLayout>
+        android:id="@+id/title"
+        android:background="#a62121"
+        android:gravity="center_horizontal|top"
+        android:singleLine="true"
+        android:text="CampuSwatch"
+        android:textAllCaps="true"
+        android:textColor="#f0f0f0"
+        android:textSize="30dp" />
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager"
-        android:layout_marginTop="70dp"
-        android:fitsSystemWindows="true"
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:autofit="http://schemas.android.com/apk/res-auto"
+        android:layout_below="@+id/title"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        tools:context="home.kyuyeol.campuswatch.MainActivity">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="bottom"
+            android:background="#99ffffff"
+            android:elevation="3dp"
+            android:scrollIndicators="none"></android.support.design.widget.TabLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
-    </android.support.v4.view.ViewPager>
+        </android.support.v4.view.ViewPager>
 
 
-</android.support.design.widget.CoordinatorLayout>
+    </android.support.design.widget.CoordinatorLayout>
+
+</RelativeLayout>

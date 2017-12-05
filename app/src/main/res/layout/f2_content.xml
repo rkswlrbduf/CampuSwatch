@@ -5,20 +5,13 @@
     xmlns:autofit="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5" />
-
     <me.grantland.widget.AutofitTextView
         android:id="@+id/icon_name"
         android:text="TEST"
         android:gravity="top|center_horizontal"
-        android:textSize="10dp"
+        android:textSize="15dp"
         android:maxLines="1"
-        android:padding="0dp"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1" />
 </LinearLayout>

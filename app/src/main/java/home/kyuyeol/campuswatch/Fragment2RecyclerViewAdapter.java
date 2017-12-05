@@ -13,24 +13,23 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.zip.Inflater;
 
 /**
  * Created by yumin on 2017-12-01.
  */
 
-public class FragmentRecyclerViewAdapter extends RecyclerView.Adapter<FragmentRecyclerViewAdapter.MyViewHolder> {
+public class Fragment2RecyclerViewAdapter extends RecyclerView.Adapter<Fragment2RecyclerViewAdapter.MyViewHolder> {
 
     LayoutInflater inflater;
-    List<Fragment1DataSet> data = Collections.emptyList();
+    List<Fragment2DataSet> data = Collections.emptyList();
     Context context;
-    final String image_url = "http://rkswlrbduf.cafe24.com/CampuSwatch/F1/F1_Image/";
+    final String image_url = "http://rkswlrbduf.cafe24.com/CampuSwatch/F2/F2_Image/";
     @Override
     public int getItemCount() {
         Log.d("DATA SIZE", String.valueOf(data.size())); return data.size();
     }
 
-    public FragmentRecyclerViewAdapter(Context context, List<Fragment1DataSet> data) {
+    public Fragment2RecyclerViewAdapter(Context context, List<Fragment2DataSet> data) {
         this.context = context;
         inflater = LayoutInflater.from(context);
         this.data = data;
@@ -38,7 +37,7 @@ public class FragmentRecyclerViewAdapter extends RecyclerView.Adapter<FragmentRe
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.fragment_recyclerview_row, parent, false);
+        View view = inflater.inflate(R.layout.fragment2_recyclerview_row, parent, false);
         MyViewHolder viewHolder = new MyViewHolder(view);
         return viewHolder;
     }
@@ -46,21 +45,21 @@ public class FragmentRecyclerViewAdapter extends RecyclerView.Adapter<FragmentRe
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.name.setText(data.get(position).name);
-        holder.price.setText(data.get(position).price);
-        Picasso.with(context).load(image_url+data.get(position).image_name + ".png").transform(new CircleTransform(20,30)).into(holder.image);
+        holder.number.setText(data.get(position).number);
+        Picasso.with(context).load(image_url+data.get(position).image_name + ".png").into(holder.image);
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView image;
         TextView name;
-        TextView price;
+        TextView number;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            image = (ImageView)itemView.findViewById(R.id.F1_image);
-            name = (TextView) itemView.findViewById(R.id.F1_name);
-            price = (TextView) itemView.findViewById(R.id.F1_price);
+            image = (ImageView)itemView.findViewById(R.id.F2_image);
+            name = (TextView) itemView.findViewById(R.id.F2_name);
+            number = (TextView) itemView.findViewById(R.id.F2_number);
         }
     }
 }

@@ -2,8 +2,10 @@ package home.kyuyeol.campuswatch;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,9 +55,32 @@ public class TabFragment1 extends android.support.v4.app.Fragment {
                                 dataSet.image_name = response.getJSONObject(i).getString("image_name");
                                 data.add(dataSet);
                             }
+                            GridLayoutManager lm = new GridLayoutManager(getActivity(), 6);
+                            lm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                                @Override
+                                public int getSpanSize(int position) {
+                                    switch (position) {
+                                        case 0:
+                                            return 2;
+                                        case 1:
+                                            return 2;
+                                        case 2:
+                                            return 2;
+                                        case 3:
+                                        case 5:
+                                        case 7:
+                                            return 3;
+                                        case 4:
+                                        case 6:
+                                        case 8:
+                                            return 3;
+                                    }
+                                    return -1;
+                                }
+                            });
                             adapter = new Fragment1RecyclerViewAdapter(getActivity(), data);
+                            recyclerView.setLayoutManager(lm);
                             recyclerView.setAdapter(adapter);
-                            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),3));
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

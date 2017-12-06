@@ -10,6 +10,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,8 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TabHost;
 import android.widget.TextView;
 
 import java.util.zip.Inflater;
@@ -51,6 +54,7 @@ public class MainActivity extends AppCompatFont {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         window.setStatusBarColor(Color.parseColor("#a62121"));
 
+
         tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.image1, "상품 검색")));
         tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.image2, "원단몰")));
         tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.image3, "모아보기")));
@@ -58,6 +62,7 @@ public class MainActivity extends AppCompatFont {
         tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.image5, "설정")));
         tabLayout.setSelectedTabIndicatorHeight(0);
         tabLayout.setSelectedTabIndicatorColor(Color.TRANSPARENT);
+
 
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
@@ -85,17 +90,15 @@ public class MainActivity extends AppCompatFont {
     }
 
 
-    public static View InflateTab(Context context, int drawable, String string) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
-        View view = inflater.inflate(R.layout.activity_content, null);
-        view.setPadding(15,15,15,15);
-
-        ImageView icon = (ImageView)view.findViewById(R.id.icon);
+    public View InflateTab(Context context, int drawable, String string) {
+        View view = LayoutInflater.from(this).inflate(R.layout.activity_content, null);
         TextView name = (TextView)view.findViewById(R.id.icon_name);
+        ImageView image = (ImageView)view.findViewById(R.id.icon);
+        image.setImageResource(drawable);
         Typeface typeface = Typeface.createFromAsset(context.getAssets(),"fonts/NotoSansMonoCJKkr-Bold.otf");
         name.setTypeface(typeface);
-        icon.setImageResource(drawable);
         name.setText(string);
         return view;
     }
+
 }

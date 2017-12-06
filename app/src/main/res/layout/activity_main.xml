@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootview"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:layout_height="match_parent">
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:id="@+id/title"
         android:background="#a62121"
         android:gravity="center_horizontal|top"
         android:singleLine="true"
@@ -19,8 +21,8 @@
     <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:autofit="http://schemas.android.com/apk/res-auto"
-        android:layout_below="@+id/title"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/coordinator"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/transparent"
@@ -29,7 +31,7 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
             android:layout_gravity="bottom"
             android:background="#99ffffff"
             android:elevation="3dp"
@@ -46,4 +48,4 @@
 
     </android.support.design.widget.CoordinatorLayout>
 
-</RelativeLayout>
+</LinearLayout>

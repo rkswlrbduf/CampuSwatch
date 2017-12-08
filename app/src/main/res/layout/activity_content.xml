@@ -6,26 +6,26 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="match_parent"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:paddingBottom="15dp"
-        android:paddingTop="10dp"
-        android:src="@drawable/image5"
-        android:layout_height="wrap_content"/>
+        android:layout_marginTop="2dp"
+        android:adjustViewBounds="true"
+        android:layout_marginBottom="12dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/image5" />
 
     <me.grantland.widget.AutofitTextView
         android:id="@+id/icon_name"
-        android:layout_alignParentBottom="true"
-        android:text="상품검색"
-        android:textSize="10dp"
-        android:layout_gravity="center_horizontal"
-        android:paddingTop="25dp"
-        android:maxLines="1"
-        android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal|top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal|top"
+        android:maxLines="1"
+        android:paddingTop="5dp"
+        android:text="상품검색"
+        android:textSize="13dp" />
 </RelativeLayout>

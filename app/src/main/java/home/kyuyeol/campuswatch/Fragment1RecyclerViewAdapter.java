@@ -82,20 +82,27 @@ public class Fragment1RecyclerViewAdapter extends RecyclerView.Adapter<Fragment1
                         case TYPE_LEFT_THIRD:
                             sglp.width = (parent.getWidth())/3;
                             sglp.height = view.getHeight()*2/3;
+                            sglp.setMargins(0,30,0,0);
                             break;
                         case TYPE_MIDDLE_THIRD:
                             sglp.width = (parent.getWidth())/3;
                             sglp.height = view.getHeight()*2/3;
+                            sglp.setMargins(0,30,0,0);
                             break;
                         case TYPE_RIGHT_THIRD:
                             sglp.width = (parent.getWidth())/3;
                             sglp.height = view.getHeight()*2/3;
+                            sglp.setMargins(0,30,0,0);
                             break;
                         case TYPE_LEFT_HALF:
-                            sglp.width = (parent.getWidth()-(sglp.getMarginStart()+sglp.getMarginStart()))/2;
+                            sglp.width = parent.getWidth()/2;
+                            sglp.height = parent.getWidth()/2;
+                            sglp.setMargins(0,30,0,0);
                             break;
                         case TYPE_RIGHT_HALF:
-                            sglp.width = (parent.getWidth()-(sglp.getMarginStart()+sglp.getMarginStart()))/2;
+                            sglp.width = parent.getWidth()/2;
+                            sglp.height = parent.getWidth()/2;
+                            sglp.setMargins(0,30,0,0);
                             break;
                     }
                     view.setLayoutParams(sglp);

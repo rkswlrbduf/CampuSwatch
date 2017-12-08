@@ -84,7 +84,7 @@ public class TabFragment2 extends android.support.v4.app.Fragment {
         view.setPadding(15,15,15,15);
 
         TextView name = (TextView)view.findViewById(R.id.icon_name);
-        Typeface typeface = Typeface.createFromAsset(context.getAssets(),"fonts/NotoSansMonoCJKkr-Bold.otf");
+        Typeface typeface = Typeface.createFromAsset(context.getAssets(),"fonts/NanumBarunGothic.ttf");
         name.setTypeface(typeface);
         name.setText(string);
         return view;

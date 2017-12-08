@@ -1,5 +1,6 @@
 package home.kyuyeol.campuswatch;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -30,9 +32,11 @@ import butterknife.ButterKnife;
 
 public class TabFragment1 extends android.support.v4.app.Fragment {
 
+    final static int MAIN_COLOR = Color.parseColor("#33C4E1");
+
     private Fragment1RecyclerViewAdapter adapter;
     private static final String server_url = "http://rkswlrbduf.cafe24.com/CampuSwatch/F1/F1.php";
-
+    ImageView imageView;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_layout1, container, false);
@@ -42,6 +46,9 @@ public class TabFragment1 extends android.support.v4.app.Fragment {
 
         final List<Fragment1DataSet> data = new ArrayList<>();
         final RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+
+        imageView = (ImageView)view.findViewById(R.id.icon);
+        imageView.setColorFilter(MAIN_COLOR);
 
         JsonArrayRequest jsonObjectRequest = new JsonArrayRequest(Request.Method.GET, server_url, (String) null,
                 new Response.Listener<JSONArray>() {

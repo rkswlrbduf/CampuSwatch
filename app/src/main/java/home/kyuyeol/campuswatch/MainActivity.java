@@ -1,35 +1,26 @@
 package home.kyuyeol.campuswatch;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TabHost;
 import android.widget.TextView;
-
-import java.util.zip.Inflater;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class MainActivity extends AppCompatFont {
+
+    final static int MAIN_COLOR = Color.parseColor("#33C4E1");
+    final static int BLACK_COLOR = Color.parseColor("#000000");
 
     @BindView(R.id.tab_layout)
     TabLayout tabLayout;
@@ -40,7 +31,7 @@ public class MainActivity extends AppCompatFont {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/NotoSansCJKkr-Medium.otf")
+                .setDefaultFontPath("fonts/NanumBarunGothic.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build());
         setContentView(R.layout.activity_main);
@@ -52,19 +43,26 @@ public class MainActivity extends AppCompatFont {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-        window.setStatusBarColor(Color.parseColor("#a62121"));
+        window.setStatusBarColor(MAIN_COLOR);
 
 
         tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.image1, "상품 검색")));
+        //tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.image1).setText("상품 검색"));
         tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.image2, "원단몰")));
+        //tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.image2).setText("원단몰"));
         tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.image3, "모아보기")));
+        //tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.image3).setText("모아보기"));
         tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.image4, "내 상품")));
-        tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.image5, "설정")));
+        //tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.image4).setText("내 상품"));
+        tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.image5, "더보기")));
+        //tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.image5).setText("더보기"));
         tabLayout.setSelectedTabIndicatorHeight(0);
         tabLayout.setSelectedTabIndicatorColor(Color.TRANSPARENT);
 
 
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        ((ImageView)tabLayout.getTabAt(0).getCustomView().findViewById(R.id.icon)).setColorFilter(MAIN_COLOR,PorterDuff.Mode.SRC_IN);
+        ((TextView)tabLayout.getTabAt(0).getCustomView().findViewById(R.id.icon_name)).setTextColor(MAIN_COLOR);
         viewPager.setAdapter(pagerAdapter);
         viewPager.setOffscreenPageLimit(4);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -73,11 +71,18 @@ public class MainActivity extends AppCompatFont {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+                ImageView imageView = (ImageView)tab.getCustomView().findViewById(R.id.icon);
+                imageView.setColorFilter(MAIN_COLOR, PorterDuff.Mode.SRC_IN);
+                TextView textView = (TextView)tab.getCustomView().findViewById(R.id.icon_name);
+                textView.setTextColor(MAIN_COLOR);
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
+                ImageView imageView = (ImageView)tab.getCustomView().findViewById(R.id.icon);
+                imageView.setColorFilter(BLACK_COLOR, PorterDuff.Mode.SRC_IN);
+                TextView textView = (TextView)tab.getCustomView().findViewById(R.id.icon_name);
+                textView.setTextColor(BLACK_COLOR);
             }
 
             @Override
@@ -95,8 +100,10 @@ public class MainActivity extends AppCompatFont {
         TextView name = (TextView)view.findViewById(R.id.icon_name);
         ImageView image = (ImageView)view.findViewById(R.id.icon);
         image.setImageResource(drawable);
-        Typeface typeface = Typeface.createFromAsset(context.getAssets(),"fonts/NotoSansMonoCJKkr-Bold.otf");
+        image.setColorFilter(BLACK_COLOR, PorterDuff.Mode.SRC_IN);
+        Typeface typeface = Typeface.createFromAsset(context.getAssets(),"fonts/NanumBarunGothic.ttf");
         name.setTypeface(typeface);
+        name.setTextColor(BLACK_COLOR);
         name.setText(string);
         return view;
     }

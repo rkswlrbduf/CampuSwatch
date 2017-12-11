@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatFont {
         //tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.image2).setText("원단몰"));
         tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.image3, "모아보기")));
         //tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.image3).setText("모아보기"));
-        tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.image4, "내 상품")));
+        tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.selfmade_image4, "내 상품")));
         //tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.image4).setText("내 상품"));
         tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.image5, "더보기")));
         //tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.image5).setText("더보기"));

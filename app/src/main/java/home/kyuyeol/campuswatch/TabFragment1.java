@@ -37,6 +37,7 @@ public class TabFragment1 extends android.support.v4.app.Fragment {
     private Fragment1RecyclerViewAdapter adapter;
     private static final String server_url = "http://rkswlrbduf.cafe24.com/CampuSwatch/F1/F1.php";
     ImageView imageView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_layout1, container, false);
@@ -47,42 +48,26 @@ public class TabFragment1 extends android.support.v4.app.Fragment {
         final List<Fragment1DataSet> data = new ArrayList<>();
         final RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
 
-        imageView = (ImageView)view.findViewById(R.id.icon);
+        imageView = (ImageView) view.findViewById(R.id.icon);
         imageView.setColorFilter(MAIN_COLOR);
 
         JsonArrayRequest jsonObjectRequest = new JsonArrayRequest(Request.Method.GET, server_url, (String) null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        try{
-                            for(int i=0;i<response.length();i++) {
+                        try {
+                            for (int i = 0; i < response.length(); i++) {
                                 Fragment1DataSet dataSet = new Fragment1DataSet();
                                 dataSet.name = response.getJSONObject(i).getString("name");
                                 dataSet.price = response.getJSONObject(i).getString("price");
                                 dataSet.image_name = response.getJSONObject(i).getString("image_name");
                                 data.add(dataSet);
                             }
-                            GridLayoutManager lm = new GridLayoutManager(getActivity(), 6);
+                            GridLayoutManager lm = new GridLayoutManager(getActivity(), 3);
                             lm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                                 @Override
                                 public int getSpanSize(int position) {
-                                    switch (position) {
-                                        case 0:
-                                            return 2;
-                                        case 1:
-                                            return 2;
-                                        case 2:
-                                            return 2;
-                                        case 3:
-                                        case 5:
-                                        case 7:
-                                            return 3;
-                                        case 4:
-                                        case 6:
-                                        case 8:
-                                            return 3;
-                                    }
-                                    return -1;
+                                    return 1;
                                 }
                             });
                             adapter = new Fragment1RecyclerViewAdapter(getActivity(), data);

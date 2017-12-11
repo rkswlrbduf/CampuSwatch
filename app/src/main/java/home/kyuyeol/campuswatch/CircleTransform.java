@@ -16,13 +16,20 @@ import com.squareup.picasso.Transformation;
 
 public class CircleTransform implements com.squareup.picasso.Transformation {
     private final int radius;
-    private final int margin;  // dp
+    //private final int margin;  // dp
+    private final int lMargin;
+    private final int tMargin;
+    private final int rMargin;
+    private final int bMargin;
 
     // radius is corner radii in dp
     // margin is the board in dp
-    public CircleTransform(final int radius, final int margin) {
+    public CircleTransform(final int radius, final int lMargin, final int tMargin, final int rMargin, final int bMargin) {
         this.radius = radius;
-        this.margin = margin;
+        this.lMargin = lMargin;
+        this.tMargin = tMargin;
+        this.rMargin = rMargin;
+        this.bMargin = bMargin;
     }
 
     @Override
@@ -33,14 +40,14 @@ public class CircleTransform implements com.squareup.picasso.Transformation {
 
         Bitmap output = Bitmap.createBitmap(source.getWidth(), source.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(output);
-        canvas.drawRoundRect(new RectF(margin, margin, source.getWidth() - margin, source.getHeight() - margin), radius, radius, paint);
+        canvas.drawRoundRect(new RectF(lMargin, tMargin, source.getWidth() - rMargin, source.getHeight() - bMargin), radius, radius, paint); // LEFT, TOP, RIGHT, BOTTOM
 
         Paint paint1 = new Paint();
         paint1.setColor(Color.parseColor("#D4D4D4"));
         paint1.setStyle(Paint.Style.STROKE);
         paint1.setAntiAlias(true);
         paint1.setStrokeWidth(4);
-        canvas.drawRoundRect(new RectF(margin, margin, source.getWidth() - margin, source.getHeight() - margin), radius, radius, paint1);
+        canvas.drawRoundRect(new RectF(lMargin, tMargin, source.getWidth() - rMargin, source.getHeight() - bMargin), radius, radius, paint1);
         if (source != output) {
             source.recycle();
         }

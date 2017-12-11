@@ -6,8 +6,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background=""
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_border">
 
         <EditText
             android:id="@+id/cursor"
@@ -19,23 +19,31 @@
             android:padding="15dp" />
 
         <ImageButton
+            android:id="@+id/icon"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:scaleType="centerCrop"
-            android:padding="6dp"
-            android:id="@+id/icon"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_margin="10dp"
             android:background="@android:color/transparent"
+            android:padding="6dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/image1" />
     </RelativeLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal|bottom"
+        android:text="@string/f1_text"
+        fontPath="fonts/NanumBarunGothicBold.ttf"
+        android:textSize="20dp"
+        android:layout_height="40dp" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:overScrollMode="never"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp" />
+        android:layout_gravity="center_horizontal"
+        android:overScrollMode="never" />
 
 </LinearLayout>

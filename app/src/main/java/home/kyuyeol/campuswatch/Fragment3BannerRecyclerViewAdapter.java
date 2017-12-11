@@ -95,7 +95,7 @@ public class Fragment3BannerRecyclerViewAdapter extends RecyclerView.Adapter<Fra
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Picasso.with(context).load(image_url+data.get(position).image_name + ".png").placeholder(R.mipmap.ic_launcher_round).into(holder.image);
+        Picasso.with(context).load(image_url+data.get(position).image_name + ".jpg").transform(new CircleTransform(20, 10,10,10,10)).placeholder(R.mipmap.ic_launcher_round).into(holder.image);
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {

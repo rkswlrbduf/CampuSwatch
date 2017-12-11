@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">CampusWatch</string>
+    <string name="f1_text">
+    캠퍼스와치의 <b><font color="#0000FF">오늘의</font></b> 추천
+</string>
 </resources>

@@ -1,36 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/F1_container"
     android:layout_width="match_parent"
     android:layout_height="300dp"
     android:orientation="vertical">
 
     <ImageView
-        android:layout_gravity="center"
         android:id="@+id/F1_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:adjustViewBounds="true"
         android:layout_above="@id/F1_name"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
         android:elevation="20dp"
         android:scaleType="centerCrop" />
 
     <TextView
-        android:layout_above="@id/F1_price"
         android:id="@+id/F1_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/F1"
+        android:layout_marginLeft="7dp"
+        android:background="@android:color/transparent"
         android:elevation="2dp"
-        android:gravity="center"
-        android:textColor="#D5D5D5" />
-
-    <TextView
-        android:id="@+id/F1_price"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="2dp"
-        android:gravity="center"
+        android:gravity="left"
+        fontPath="fonts/NanumBarunGothicBold.ttf"
+        android:paddingTop="5dp"
         android:textColor="#4c4c4c"
-        android:textStyle="bold" />
+        android:textSize="12dp" />
+
+    <RelativeLayout
+        android:id="@+id/F1"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/F1_price"
+            fontPath="fonts/NanumBarunGothicBold.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="7dp"
+            android:layout_toLeftOf="@+id/f1_heart"
+            android:background="@android:color/transparent"
+            android:elevation="2dp"
+            android:gravity="left|center_vertical"
+            android:paddingTop="5dp"
+            android:textColor="#4c4c4c"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/f1_heart"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="7dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/selfmade_image4"
+            android:tint="#ff5656"
+            android:tintMode="src_in" />
+    </RelativeLayout>
 
 </RelativeLayout>

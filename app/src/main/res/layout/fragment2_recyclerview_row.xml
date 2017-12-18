@@ -5,30 +5,32 @@
     android:orientation="horizontal">
 
     <TextView
-        android:layout_weight="1"
-        android:layout_width="0dp"
         android:id="@+id/F2_number"
-        android:textStyle="bold"
-        android:textSize="25dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:gravity="center"
-        android:layout_height="match_parent" />
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
     <ImageView
         android:id="@+id/F2_image"
-        android:layout_weight="1.5"
         android:layout_width="0dp"
-        android:padding="7dp"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_weight="1.5"
+        android:padding="11dp" />
+
     <TextView
         android:id="@+id/F2_name"
-        android:gravity="left"
-        android:layout_weight="5.5"
         android:layout_width="0dp"
-        android:textSize="16dp"
-        android:paddingTop="8dp"
+        android:layout_height="match_parent"
+        android:layout_weight="5.5"
+        android:gravity="left"
         android:paddingLeft="7dp"
-        android:textStyle="bold"
+        android:paddingTop="12dp"
         android:textColor="#414141"
-        android:layout_height="match_parent" />
+        android:textSize="13dp"
+        android:textStyle="bold" />
 
 
 </LinearLayout>

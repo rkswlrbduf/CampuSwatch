@@ -19,7 +19,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class MainActivity extends AppCompatFont {
 
-    final static int MAIN_COLOR = Color.parseColor("#33C4E1");
+    final static int MAIN_COLOR = Color.parseColor("#EBEBEC");
     final static int BLACK_COLOR = Color.parseColor("#000000");
 
     @BindView(R.id.tab_layout)

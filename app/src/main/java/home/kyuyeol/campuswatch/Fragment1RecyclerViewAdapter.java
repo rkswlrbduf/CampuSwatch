@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -23,15 +24,29 @@ import java.util.List;
  * Created by yumin on 2017-12-01.
  */
 
-public class Fragment1RecyclerViewAdapter extends RecyclerView.Adapter<Fragment1RecyclerViewAdapter.MyViewHolder> {
+public class Fragment1RecyclerViewAdapter extends RecyclerView.Adapter<Fragment1RecyclerViewAdapter.MyViewHolder> implements RecyclerView.OnItemTouchListener{
 
     private static final int TYPE_LEFT_THIRD = 0;
     private static final int TYPE_MIDDLE_THIRD = 1;
     private static final int TYPE_RIGHT_THIRD = 2;
     private static final int TYPE_FULL = 4;
 
-
     GradientDrawable gradientDrawable = new GradientDrawable();
+
+    @Override
+    public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+    }
+
+    @Override
+    public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+    }
 
     @Override
     public int getItemViewType(int position) {

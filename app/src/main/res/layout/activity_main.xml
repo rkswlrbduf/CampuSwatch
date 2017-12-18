@@ -8,16 +8,16 @@
 
     <TextView
         android:id="@+id/title"
-        fontPath="fonts/NanumBarunGothicBold.ttf"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="33dp"
         android:background="@color/mainColor"
-        android:gravity="center"
+        android:gravity="bottom|center_horizontal"
         android:singleLine="true"
+        android:paddingBottom="10dp"
         android:text="CampuSwatch"
         android:textAllCaps="true"
-        android:textColor="#f0f0f0"
-        android:textSize="30dp" />
+        android:textColor="#F9A670"
+        android:textSize="20dp" />
 
     <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -32,7 +32,7 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="45dp"
             android:layout_gravity="bottom"
             android:background="@drawable/top_border"
             android:elevation="3dp"

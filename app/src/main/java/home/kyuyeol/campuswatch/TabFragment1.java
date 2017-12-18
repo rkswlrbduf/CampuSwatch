@@ -1,5 +1,7 @@
 package home.kyuyeol.campuswatch;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,10 +9,13 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,7 +37,7 @@ import butterknife.ButterKnife;
 
 public class TabFragment1 extends android.support.v4.app.Fragment {
 
-    final static int MAIN_COLOR = Color.parseColor("#33C4E1");
+    final static int MAIN_COLOR = Color.parseColor("#EBEBEC");
 
     private Fragment1RecyclerViewAdapter adapter;
     private static final String server_url = "http://rkswlrbduf.cafe24.com/CampuSwatch/F1/F1.php";
@@ -83,6 +88,23 @@ public class TabFragment1 extends android.support.v4.app.Fragment {
 
             }
         });
+
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("Index", position);
+                Intent intent = new Intent(getActivity(), DetailActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.anim_slide_in_bottom,R.anim.anim_slide_out_top);
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
+        }));
         requestQueue.add(jsonObjectRequest);
 
         return view;

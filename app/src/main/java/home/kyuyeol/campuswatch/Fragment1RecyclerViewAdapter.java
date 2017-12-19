@@ -73,7 +73,7 @@ public class Fragment1RecyclerViewAdapter extends RecyclerView.Adapter<Fragment1
     LayoutInflater inflater;
     List<Fragment1DataSet> data = Collections.emptyList();
     Context context;
-    final String image_url = "http://rkswlrbduf.cafe24.com/CampuSwatch/F1/F1_Image/";
+    final String image_url = "http://rkswlrbduf.cafe24.com/Uic/F1/F1_Image/";
 
     @Override
     public int getItemCount() {

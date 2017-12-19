@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Shader;
+import android.util.Log;
 
 import com.squareup.picasso.Transformation;
 
@@ -15,16 +16,14 @@ import com.squareup.picasso.Transformation;
  */
 
 public class CircleTransform implements com.squareup.picasso.Transformation {
-    private final int radius;
-    //private final int margin;  // dp
-    private final int lMargin;
-    private final int tMargin;
-    private final int rMargin;
-    private final int bMargin;
 
-    // radius is corner radii in dp
-    // margin is the board in dp
-    public CircleTransform(final int radius, final int lMargin, final int tMargin, final int rMargin, final int bMargin) {
+    private int radius;
+    private int lMargin;
+    private int tMargin;
+    private int rMargin;
+    private int bMargin;
+
+    public CircleTransform(int radius, int lMargin, int tMargin, int rMargin, int bMargin) {
         this.radius = radius;
         this.lMargin = lMargin;
         this.tMargin = tMargin;
@@ -40,18 +39,18 @@ public class CircleTransform implements com.squareup.picasso.Transformation {
 
         Bitmap output = Bitmap.createBitmap(source.getWidth(), source.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(output);
-        canvas.drawRoundRect(new RectF(lMargin, tMargin, source.getWidth() - rMargin, source.getHeight() - bMargin), radius, radius, paint); // LEFT, TOP, RIGHT, BOTTOM
+        canvas.drawRoundRect(new RectF(0, 0, source.getWidth(), source.getHeight()), radius, radius, paint);
 
-        Paint paint1 = new Paint();
+        final Paint paint1 = new Paint();
         paint1.setColor(Color.parseColor("#D4D4D4"));
         paint1.setStyle(Paint.Style.STROKE);
         paint1.setAntiAlias(true);
         paint1.setStrokeWidth(4);
-        canvas.drawRoundRect(new RectF(lMargin, tMargin, source.getWidth() - rMargin, source.getHeight() - bMargin), radius, radius, paint1);
+        canvas.drawRoundRect(new RectF(0, 0, source.getWidth(), source.getHeight()), radius, radius, paint1);
+        Log.d("Margin", lMargin + " " + tMargin + " " + rMargin + " " + bMargin);
         if (source != output) {
             source.recycle();
         }
-
         return output;
     }
 

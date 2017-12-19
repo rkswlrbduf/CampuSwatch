@@ -9,5 +9,6 @@ public class Fragment1DataSet {
     String name;
     String price;
     String image_name;
+    String code;
 
 }

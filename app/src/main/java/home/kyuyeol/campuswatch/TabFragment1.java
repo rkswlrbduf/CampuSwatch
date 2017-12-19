@@ -40,7 +40,7 @@ public class TabFragment1 extends android.support.v4.app.Fragment {
     final static int MAIN_COLOR = Color.parseColor("#EBEBEC");
 
     private Fragment1RecyclerViewAdapter adapter;
-    private static final String server_url = "http://rkswlrbduf.cafe24.com/CampuSwatch/F1/F1.php";
+    private static final String server_url = "http://rkswlrbduf.cafe24.com/Uic/F1/F1.php";
     ImageView imageView;
 
     @Override
@@ -66,6 +66,7 @@ public class TabFragment1 extends android.support.v4.app.Fragment {
                                 dataSet.name = response.getJSONObject(i).getString("name");
                                 dataSet.price = response.getJSONObject(i).getString("price");
                                 dataSet.image_name = response.getJSONObject(i).getString("image_name");
+                                dataSet.code = response.getJSONObject(i).getString("code");
                                 data.add(dataSet);
                             }
                             GridLayoutManager lm = new GridLayoutManager(getActivity(), 3);
@@ -93,7 +94,8 @@ public class TabFragment1 extends android.support.v4.app.Fragment {
             @Override
             public void onItemClick(View view, int position) {
                 Bundle bundle = new Bundle();
-                bundle.putInt("Index", position);
+                bundle.putString("Code", data.get(position).code);
+                Log.d("Code", data.get(position).code);
                 Intent intent = new Intent(getActivity(), DetailActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);

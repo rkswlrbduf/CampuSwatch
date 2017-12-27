@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/F1_container"
     android:layout_width="match_parent"
     android:layout_height="300dp"
@@ -9,57 +10,64 @@
         android:id="@+id/F1_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/F1_name"
+        android:layout_above="@id/F1"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
         android:elevation="20dp"
         android:scaleType="centerCrop" />
 
-    <TextView
-        android:id="@+id/F1_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/F1"
-        android:layout_marginLeft="7dp"
-        android:background="@android:color/transparent"
-        android:elevation="2dp"
-        android:gravity="left"
-        fontPath="fonts/NanumBarunGothicBold.ttf"
-        android:paddingTop="5dp"
-        android:textColor="#4c4c4c"
-        android:textSize="12dp" />
 
     <RelativeLayout
         android:id="@+id/F1"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="40dp"
         android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/F1_name"
+            fontPath="fonts/NanumBarunGothicBold.ttf"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_above="@+id/F1_price"
+            android:layout_marginLeft="7dp"
+            android:background="@android:color/transparent"
+            android:elevation="2dp"
+            android:gravity="left"
+            android:paddingTop="5dp"
+            android:textColor="#4c4c4c"
+            android:textSize="12dp" />
+
 
         <TextView
             android:id="@+id/F1_price"
             fontPath="fonts/NanumBarunGothicBold.ttf"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="7dp"
             android:layout_toLeftOf="@+id/f1_heart"
             android:background="@android:color/transparent"
             android:elevation="2dp"
-            android:gravity="left|center_vertical"
+            android:gravity="left"
+            android:layout_alignParentBottom="true"
             android:paddingTop="5dp"
             android:textColor="#4c4c4c"
             android:textStyle="bold" />
 
-        <ImageView
+        <com.like.LikeButton
             android:id="@+id/f1_heart"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_marginRight="7dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/selfmade_image4"
-            android:tint="#ff5656"
-            android:tintMode="src_in" />
+            app:icon_size="17dp"
+            app:anim_scale_factor="2.5"
+            app:circle_start_color="#FF00FF"
+            app:icon_type="heart" />
+
+
     </RelativeLayout>
 
 </RelativeLayout>

@@ -90,23 +90,23 @@ public class TabFragment1 extends android.support.v4.app.Fragment {
             }
         });
 
-        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+        /*recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Bundle bundle = new Bundle();
+                *//*Bundle bundle = new Bundle();
                 bundle.putString("Code", data.get(position).code);
                 Log.d("Code", data.get(position).code);
                 Intent intent = new Intent(getActivity(), DetailActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.anim_slide_in_bottom,R.anim.anim_slide_out_top);
+                getActivity().overridePendingTransition(R.anim.anim_slide_in_bottom,R.anim.anim_slide_out_top);*//*
             }
 
             @Override
             public void onLongItemClick(View view, int position) {
 
             }
-        }));
+        }));*/
         requestQueue.add(jsonObjectRequest);
 
         return view;

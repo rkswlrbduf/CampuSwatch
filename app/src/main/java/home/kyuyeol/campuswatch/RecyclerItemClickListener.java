@@ -1,6 +1,7 @@
 package home.kyuyeol.campuswatch;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -16,7 +17,6 @@ public class RecyclerItemClickListener implements RecyclerView.OnItemTouchListen
 
     public interface OnItemClickListener {
         void onItemClick(View view, int position);
-
         void onLongItemClick(View view, int position);
     }
 

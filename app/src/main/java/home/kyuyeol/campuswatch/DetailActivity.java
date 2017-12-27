@@ -37,8 +37,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class DetailActivity extends AppCompatFont {
 
-    @BindView(R.id.detail_image)
-    ImageView image;
+    @BindView(R.id.detail_main_image)
+    ImageView mainImage;
     @BindView(R.id.detail_code)
     TextView code;
     @BindView(R.id.detail_name)
@@ -51,11 +51,13 @@ public class DetailActivity extends AppCompatFont {
     TextView delivery;
     @BindView(R.id.detail_total)
     TextView total;
+    @BindView(R.id.detail_product_image)
+    ImageView productImage;
 
     private int sum = 0;
 
     private String server_url = "http://rkswlrbduf.cafe24.com/Uic/Detail/F1.php";
-    private final String image_url = "http://rkswlrbduf.cafe24.com/Uic/F1/F1_Image/";
+    private final String image_url = "http://rkswlrbduf.cafe24.com/Uic/Detail/F1_Image/";
 
     final static int MAIN_COLOR = Color.parseColor("#EBEBEC");
 
@@ -103,7 +105,9 @@ public class DetailActivity extends AppCompatFont {
                             sum = Integer.parseInt(price.getText().toString()) + Integer.parseInt(delivery.getText().toString());
                             total.setText(String.valueOf(sum));
                             code.setText(response.getJSONObject(0).getString("code"));
-                            Picasso.with(getApplicationContext()).load(image_url + response.getJSONObject(0).getString("image_name") + ".png").placeholder(gradientDrawable).transform(new CircleTransform(10, 0, 0, 0, 0)).into(image);
+                            Picasso.with(getApplicationContext()).load(image_url + response.getJSONObject(0).getString("main_image") + ".png").placeholder(gradientDrawable).transform(new CircleTransform(10, 0, 0, 0, 0)).into(mainImage);
+                            Picasso.with(getApplicationContext()).load(image_url + response.getJSONObject(0).getString("product_image") + ".png").placeholder(gradientDrawable).into(productImage);
+                            Log.d("TAG", response.getJSONObject(0).getString("product_image"));
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

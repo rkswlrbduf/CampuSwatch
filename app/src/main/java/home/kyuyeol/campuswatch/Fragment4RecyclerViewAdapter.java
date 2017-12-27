@@ -29,6 +29,7 @@ public class Fragment4RecyclerViewAdapter extends RecyclerView.Adapter<Fragment4
         Log.d("DATA SIZE", String.valueOf(data.size())); return data.size();
     }
 
+
     public Fragment4RecyclerViewAdapter(Context context, List<Fragment3CategoryDataSet> data) {
         this.context = context;
         inflater = LayoutInflater.from(context);

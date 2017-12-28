@@ -42,7 +42,6 @@ public class Fragment1RecyclerViewAdapter extends RecyclerView.Adapter<Fragment1
     private static final int TYPE_RIGHT_THIRD = 2;
     private static final int TYPE_FULL = 4;
 
-    GradientDrawable gradientDrawable = new GradientDrawable();
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     ArrayList<String> heartList = new ArrayList<String>();
@@ -93,15 +92,16 @@ public class Fragment1RecyclerViewAdapter extends RecyclerView.Adapter<Fragment1
     @Override
     public MyViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
         final View view = inflater.inflate(R.layout.fragment1_recyclerview_row, parent, false);
-        gradientDrawable.setShape(GradientDrawable.RECTANGLE);
-        gradientDrawable.setColor(Color.parseColor("#ffffff"));
 
         json = preferences.getString("heart", null);
 
-        try {
-            jsonArray = new JSONArray(json);
-        } catch(JSONException e) {
-            e.printStackTrace();
+        if(json != null) {
+            try {
+                jsonArray = new JSONArray(json);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } else {
             jsonArray = new JSONArray();
         }
 
@@ -158,16 +158,16 @@ public class Fragment1RecyclerViewAdapter extends RecyclerView.Adapter<Fragment1
         int type = getItemViewType(position);
         switch (type) {
             case TYPE_LEFT_THIRD:
-                Picasso.with(context).load(image_url + data.get(position).image_name + ".png").placeholder(gradientDrawable).transform(new CircleTransform(10, 0, 30, 0, 0)).into(holder.image);
+                Picasso.with(context).load(image_url + data.get(position).image_name + ".png").placeholder(R.drawable.progress_animation).transform(new CircleTransform(10, 0, 30, 0, 0)).into(holder.image);
                 break;
             case TYPE_MIDDLE_THIRD:
-                Picasso.with(context).load(image_url + data.get(position).image_name + ".png").placeholder(gradientDrawable).transform(new CircleTransform(10, 0, 30, 0, 0)).into(holder.image);
+                Picasso.with(context).load(image_url + data.get(position).image_name + ".png").placeholder(R.drawable.progress_animation).transform(new CircleTransform(10, 0, 30, 0, 0)).into(holder.image);
                 break;
             case TYPE_RIGHT_THIRD:
-                Picasso.with(context).load(image_url + data.get(position).image_name + ".png").placeholder(gradientDrawable).transform(new CircleTransform(10, 0, 30, 0, 0)).into(holder.image);
+                Picasso.with(context).load(image_url + data.get(position).image_name + ".png").placeholder(R.drawable.progress_animation).transform(new CircleTransform(10, 0, 30, 0, 0)).into(holder.image);
                 break;
             case TYPE_FULL:
-                Picasso.with(context).load(image_url + data.get(position).image_name + ".png").placeholder(gradientDrawable).transform(new CircleTransform(10, 30, 30, 30, 0)).into(holder.image);
+                Picasso.with(context).load(image_url + data.get(position).image_name + ".png").placeholder(R.drawable.progress_animation).transform(new CircleTransform(10, 30, 30, 30, 0)).into(holder.image);
                 break;
         }
     }

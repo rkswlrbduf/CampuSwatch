@@ -2,14 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:autofit="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <me.grantland.widget.AutofitTextView
         android:id="@+id/icon_name"
         android:text="TEST"
         android:gravity="top|center_horizontal"
-        android:textSize="15dp"
+        android:textSize="13dp"
         android:maxLines="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

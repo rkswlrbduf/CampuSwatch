@@ -37,7 +37,7 @@ import butterknife.ButterKnife;
 
 public class TabFragment1 extends android.support.v4.app.Fragment {
 
-    final static int MAIN_COLOR = Color.parseColor("#EBEBEC");
+    int IMAGE_COLOR;
 
     private Fragment1RecyclerViewAdapter adapter;
     private static final String server_url = "http://rkswlrbduf.cafe24.com/Uic/F1/F1.php";
@@ -53,8 +53,10 @@ public class TabFragment1 extends android.support.v4.app.Fragment {
         final List<Fragment1DataSet> data = new ArrayList<>();
         final RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
 
+        IMAGE_COLOR = getResources().getColor(R.color.statusColor);
+
         imageView = (ImageView) view.findViewById(R.id.icon);
-        imageView.setColorFilter(MAIN_COLOR);
+        imageView.setColorFilter(IMAGE_COLOR);
 
         JsonArrayRequest jsonObjectRequest = new JsonArrayRequest(Request.Method.GET, server_url, (String) null,
                 new Response.Listener<JSONArray>() {
@@ -69,11 +71,18 @@ public class TabFragment1 extends android.support.v4.app.Fragment {
                                 dataSet.code = response.getJSONObject(i).getString("code");
                                 data.add(dataSet);
                             }
-                            GridLayoutManager lm = new GridLayoutManager(getActivity(), 3);
+                            GridLayoutManager lm = new GridLayoutManager(getActivity().getApplicationContext(),6);
                             lm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                                 @Override
                                 public int getSpanSize(int position) {
-                                    return 1;
+                                    switch (position) {
+                                        case 0:
+                                        case 1:
+                                        case 2:
+                                            return 2;
+                                        default:
+                                            return 3;
+                                    }
                                 }
                             });
                             adapter = new Fragment1RecyclerViewAdapter(getActivity(), data);

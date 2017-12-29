@@ -3,8 +3,14 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorGray">#55dfdfdf</color>
+    <color name="colorGray">#88e2e2e2</color>
+    <color name="itemColor">#aeaeae</color>
+    <color name="f2UnseletedTab">#a3a3a3</color>
     <!--<color name="mainColor">#A7DDE9</color>-->
     <color name="subColor">#ffffff</color>
     <color name="mainColor">#ffffff</color>
+    <color name="statusColor">#D81A60</color>
+    <color name="tabColor">#EA1E63</color>
+    <color name="mainSelectedTabColor">#FFFFFF</color>
+    <color name="mainUnselectedTabColor">#99FFFFFF</color>
 </resources>

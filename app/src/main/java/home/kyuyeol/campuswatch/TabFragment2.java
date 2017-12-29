@@ -2,6 +2,7 @@ package home.kyuyeol.campuswatch;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -44,15 +45,23 @@ public class TabFragment2 extends android.support.v4.app.Fragment {
     TabLayout tabLayout;
     ViewPager viewPager;
 
+    int SELECTED_COLOR;
+    int UNSELECTED_COLOR;
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.tab_layout2, container, false);
         ButterKnife.bind(container);
 
+        SELECTED_COLOR = getResources().getColor(R.color.tabColor);
+        UNSELECTED_COLOR = getResources().getColor(R.color.f2UnseletedTab);
+
         tabLayout = (TabLayout)view.findViewById(R.id.F2_Tab);
         viewPager = (ViewPager)view.findViewById(R.id.F2_view_pager);
         tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getActivity(), "원단 공장 랭킹")));
         tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getActivity(), "즐겨찾기")));
+
+        ((TextView)tabLayout.getTabAt(0).getCustomView().findViewById(R.id.icon_name)).setTextColor(SELECTED_COLOR);
 
         F2_PagerAdapter pagerAdapter = new F2_PagerAdapter(getActivity().getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
@@ -62,11 +71,14 @@ public class TabFragment2 extends android.support.v4.app.Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+                TextView textView = (TextView)tab.getCustomView().findViewById(R.id.icon_name);
+                textView.setTextColor(SELECTED_COLOR);
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
+                TextView textView = (TextView)tab.getCustomView().findViewById(R.id.icon_name);
+                textView.setTextColor(UNSELECTED_COLOR);
             }
 
             @Override
@@ -78,12 +90,12 @@ public class TabFragment2 extends android.support.v4.app.Fragment {
         return view;
     }
 
-    public static View InflateTab(Context context, String string) {
+    public View InflateTab(Context context, String string) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
         View view = inflater.inflate(R.layout.f2_content, null);
         view.setPadding(15,15,15,15);
-
         TextView name = (TextView)view.findViewById(R.id.icon_name);
+        name.setTextColor(UNSELECTED_COLOR);
         Typeface typeface = Typeface.createFromAsset(context.getAssets(),"fonts/NanumBarunGothic.ttf");
         name.setTypeface(typeface);
         name.setText(string);

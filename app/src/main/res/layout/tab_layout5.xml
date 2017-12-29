@@ -2,33 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f4f4f4"
+    android:background="@color/colorGray"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
+        android:paddingBottom="7dp"
         android:paddingLeft="20dp"
-        android:paddingTop="20dp"
-        android:text="쇼핑몰 관리" />
+        android:paddingTop="15dp"
+        android:text="쇼핑몰 관리"
+        android:textSize="11dp" />
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <Button
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@drawable/detail_button"
+            android:layout_height="match_parent"
+            android:background="@drawable/bottom_border"
             android:elevation="0dp"
             android:gravity="left|center_vertical"
             android:paddingLeft="16dp"
             android:text="원단몰 가입 도우미"
-            android:textSize="16dp" />
+            android:textSize="14dp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -44,26 +45,27 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
+        android:paddingBottom="7dp"
         android:paddingLeft="22dp"
         android:paddingTop="22dp"
-        android:text="일반" />
+        android:text="일반"
+        android:textSize="11dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <Button
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@drawable/detail_button"
+            android:layout_height="match_parent"
+            android:background="@drawable/bottom_border"
             android:elevation="0dp"
             android:gravity="left|center_vertical"
             android:paddingLeft="16dp"
             android:text="캠퍼스와치 로그인(회원가입)"
-            android:textSize="16dp" />
+            android:textSize="14dp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -79,19 +81,19 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <Button
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@drawable/detail_button"
+            android:layout_height="match_parent"
+            android:background="@drawable/bottom_border"
             android:elevation="0dp"
             android:gravity="left|center_vertical"
             android:paddingLeft="16dp"
             android:text="공지사항"
-            android:textSize="16dp" />
+            android:textSize="14dp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -106,19 +108,19 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <Button
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@drawable/detail_button"
+            android:layout_height="match_parent"
+            android:background="@drawable/bottom_border"
             android:elevation="0dp"
             android:gravity="left|center_vertical"
             android:paddingLeft="16dp"
             android:text="문의/건의하기"
-            android:textSize="16dp" />
+            android:textSize="14dp" />
 
 
         <ImageView
@@ -134,20 +136,20 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <Button
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:background="@drawable/detail_button"
             android:elevation="0dp"
             android:gravity="left|center_vertical"
             android:paddingLeft="16dp"
             android:text="캐시 데이터 지우기"
-            android:textSize="16dp" />
+            android:textSize="14dp" />
 
         <ImageView
             android:layout_width="wrap_content"

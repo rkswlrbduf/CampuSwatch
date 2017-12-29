@@ -30,6 +30,7 @@
         app:like_drawable="@drawable/heart_gray"
         app:unlike_drawable="@drawable/heart_white" />
 
+
     <RelativeLayout
         android:id="@+id/F1"
         android:layout_width="match_parent"

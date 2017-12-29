@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -39,11 +40,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:gravity="center_horizontal|bottom"
+        android:gravity="center"
         android:text="@string/f1_text"
+        android:layout_margin="10dp"
         android:textSize="16dp" />
 
     <android.support.v7.widget.RecyclerView
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

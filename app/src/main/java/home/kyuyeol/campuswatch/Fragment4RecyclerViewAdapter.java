@@ -21,16 +21,16 @@ import java.util.List;
 public class Fragment4RecyclerViewAdapter extends RecyclerView.Adapter<Fragment4RecyclerViewAdapter.MyViewHolder> {
 
     LayoutInflater inflater;
-    List<Fragment3CategoryDataSet> data = Collections.emptyList();
+    List<Fragment4DataSet> data = Collections.emptyList();
     Context context;
     final String image_url = "http://rkswlrbduf.cafe24.com/CampuSwatch/F3/F3_Category/F3_Category_Image/";
+
     @Override
     public int getItemCount() {
         Log.d("DATA SIZE", String.valueOf(data.size())); return data.size();
     }
 
-
-    public Fragment4RecyclerViewAdapter(Context context, List<Fragment3CategoryDataSet> data) {
+    public Fragment4RecyclerViewAdapter(Context context, List<Fragment4DataSet> data) {
         this.context = context;
         inflater = LayoutInflater.from(context);
         this.data = data;
@@ -38,7 +38,7 @@ public class Fragment4RecyclerViewAdapter extends RecyclerView.Adapter<Fragment4
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.fragment3_category_recyclerview_row, parent, false);
+        View view = inflater.inflate(R.layout.fragment4_recyclerview_row, parent, false);
         MyViewHolder viewHolder = new MyViewHolder(view);
         return viewHolder;
     }

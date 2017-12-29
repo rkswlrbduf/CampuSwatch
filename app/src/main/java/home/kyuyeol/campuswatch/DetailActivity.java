@@ -61,8 +61,6 @@ public class DetailActivity extends AppCompatFont {
 
     final static int MAIN_COLOR = Color.parseColor("#EBEBEC");
 
-    GradientDrawable gradientDrawable = new GradientDrawable();
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,9 +71,6 @@ public class DetailActivity extends AppCompatFont {
         setContentView(R.layout.detail_activity);
 
         ButterKnife.bind(this);
-
-        gradientDrawable.setShape(GradientDrawable.RECTANGLE);
-        gradientDrawable.setColor(Color.parseColor("#ffffff"));
 
         Window window = getWindow();
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
@@ -105,8 +100,8 @@ public class DetailActivity extends AppCompatFont {
                             sum = Integer.parseInt(price.getText().toString()) + Integer.parseInt(delivery.getText().toString());
                             total.setText(String.valueOf(sum));
                             code.setText(response.getJSONObject(0).getString("code"));
-                            Picasso.with(getApplicationContext()).load(image_url + response.getJSONObject(0).getString("main_image") + ".png").placeholder(gradientDrawable).transform(new CircleTransform(10, 0, 0, 0, 0)).into(mainImage);
-                            Picasso.with(getApplicationContext()).load(image_url + response.getJSONObject(0).getString("product_image") + ".png").placeholder(gradientDrawable).into(productImage);
+                            Picasso.with(getApplicationContext()).load(image_url + response.getJSONObject(0).getString("main_image") + ".png").placeholder(R.drawable.progress_animation).transform(new CircleTransform(10, 0, 0, 0, 0)).into(mainImage);
+                            Picasso.with(getApplicationContext()).load(image_url + response.getJSONObject(0).getString("product_image") + ".png").placeholder(R.drawable.progress_animation).into(productImage);
                             Log.d("TAG", response.getJSONObject(0).getString("product_image"));
                         } catch (Exception e) {
                             e.printStackTrace();

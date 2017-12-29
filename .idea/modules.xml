@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/CampuSwatch.iml" filepath="$PROJECT_DIR$/.idea/CampuSwatch.iml" />
+      <module fileurl="file://C:\Users\rkswl\AndroidStudioProjects\Uic\.idea\CampuSwatch.iml" filepath="C:\Users\rkswl\AndroidStudioProjects\Uic\.idea\CampuSwatch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Uic.iml" filepath="$PROJECT_DIR$/Uic.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

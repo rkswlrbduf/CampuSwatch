@@ -98,10 +98,13 @@ public class Fragment1RecyclerViewAdapter extends RecyclerView.Adapter<Fragment1
 
         json = preferences.getString("heart", null);
 
-        try {
-            jsonArray = new JSONArray(json);
-        } catch(JSONException e) {
-            e.printStackTrace();
+        if(json!= null) {
+            try {
+                jsonArray = new JSONArray(json);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } else {
             jsonArray = new JSONArray();
         }
 

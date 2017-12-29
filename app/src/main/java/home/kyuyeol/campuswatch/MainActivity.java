@@ -23,7 +23,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class MainActivity extends AppCompatFont {
 
-    final static int MAIN_COLOR = Color.parseColor("#EBEBEC");
+    //final static int MAIN_COLOR = Color.parseColor("#EBEBEC");
+    int MAIN_COLOR;
     final static int BLACK_COLOR = Color.parseColor("#000000");
 
     @BindView(R.id.tab_layout)
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatFont {
                 .build());
         setContentView(R.layout.activity_main);
 
+        MAIN_COLOR = getResources().getColor(R.color.mainColor);
+
         ButterKnife.bind(this);
 
         Window window = getWindow();
@@ -47,29 +50,22 @@ public class MainActivity extends AppCompatFont {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-        window.setStatusBarColor(MAIN_COLOR);
+//        window.setStatusBarColor(MAIN_COLOR);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = prefs.edit();
         JSONArray jsonArray = new JSONArray();
 
         tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.image1, "상품 검색")));
-        //tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.image1).setText("상품 검색"));
         tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.image2, "원단몰")));
-        //tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.image2).setText("원단몰"));
         tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.image3, "모아보기")));
-        //tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.image3).setText("모아보기"));
         tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.selfmade_image4, "내 상품")));
-        //tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.image4).setText("내 상품"));
         tabLayout.addTab(tabLayout.newTab().setCustomView(InflateTab(getApplicationContext(), R.drawable.image5, "더보기")));
-        //tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.image5).setText("더보기"));
-        tabLayout.setSelectedTabIndicatorHeight(0);
-        tabLayout.setSelectedTabIndicatorColor(Color.TRANSPARENT);
-
 
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
-        ((ImageView)tabLayout.getTabAt(0).getCustomView().findViewById(R.id.icon)).setColorFilter(MAIN_COLOR,PorterDuff.Mode.SRC_IN);
-        ((TextView)tabLayout.getTabAt(0).getCustomView().findViewById(R.id.icon_name)).setTextColor(MAIN_COLOR);
+        // 색상 설정 지우기 말것
+        //((ImageView)tabLayout.getTabAt(0).getCustomView().findViewById(R.id.icon)).setColorFilter(getResources().getColor(R.color.colorGray),PorterDuff.Mode.SRC_IN);
+        //((TextView)tabLayout.getTabAt(0).getCustomView().findViewById(R.id.icon_name)).setTextColor(getResources().getColor(R.color.colorGray));
         viewPager.setAdapter(pagerAdapter);
         viewPager.setOffscreenPageLimit(4);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -78,18 +74,18 @@ public class MainActivity extends AppCompatFont {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                ImageView imageView = (ImageView)tab.getCustomView().findViewById(R.id.icon);
-                imageView.setColorFilter(MAIN_COLOR, PorterDuff.Mode.SRC_IN);
+                /*ImageView imageView = (ImageView)tab.getCustomView().findViewById(R.id.icon);
+                imageView.setColorFilter(Color.parseColor("#ffffff"), PorterDuff.Mode.SRC_IN);
                 TextView textView = (TextView)tab.getCustomView().findViewById(R.id.icon_name);
-                textView.setTextColor(MAIN_COLOR);
+                textView.setTextColor(Color.parseColor("#ffffff"));*/
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                ImageView imageView = (ImageView)tab.getCustomView().findViewById(R.id.icon);
-                imageView.setColorFilter(BLACK_COLOR, PorterDuff.Mode.SRC_IN);
+                /*ImageView imageView = (ImageView)tab.getCustomView().findViewById(R.id.icon);
+                imageView.setColorFilter(getResources().getColor(R.color.colorGray), PorterDuff.Mode.SRC_IN);
                 TextView textView = (TextView)tab.getCustomView().findViewById(R.id.icon_name);
-                textView.setTextColor(BLACK_COLOR);
+                textView.setTextColor(getResources().getColor(R.color.colorGray));*/
             }
 
             @Override
@@ -107,10 +103,10 @@ public class MainActivity extends AppCompatFont {
         TextView name = (TextView)view.findViewById(R.id.icon_name);
         ImageView image = (ImageView)view.findViewById(R.id.icon);
         image.setImageResource(drawable);
-        image.setColorFilter(BLACK_COLOR, PorterDuff.Mode.SRC_IN);
+//        image.setColorFilter(getResources().getColor(R.color.colorGray), PorterDuff.Mode.SRC_IN);
         Typeface typeface = Typeface.createFromAsset(context.getAssets(),"fonts/NanumBarunGothic.ttf");
         name.setTypeface(typeface);
-        name.setTextColor(BLACK_COLOR);
+//        name.setTextColor(getResources().getColor(R.color.colorGray));
         name.setText(string);
         return view;
     }

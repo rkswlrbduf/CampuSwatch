@@ -95,7 +95,7 @@ public class Fragment1RecyclerViewAdapter extends RecyclerView.Adapter<Fragment1
 
         json = preferences.getString("heart", null);
 
-        if(json != null) {
+        if (json != null) {
             try {
                 jsonArray = new JSONArray(json);
             } catch (JSONException e) {
@@ -116,21 +116,21 @@ public class Fragment1RecyclerViewAdapter extends RecyclerView.Adapter<Fragment1
                     int ori_height = view.getHeight();
                     switch (type) {
                         case TYPE_LEFT_THIRD:
-                            sglp.width = (parent.getWidth()) / 3;
-                            sglp.height = sglp.width + view.findViewById(R.id.F1_name).getHeight() + view.findViewById(R.id.F1).getHeight();
-                            view.setPadding(30, 15, 10, 0);
+                            sglp.width = ((parent.getWidth()) - 100) / 3;
+                            sglp.height = sglp.width + view.findViewById(R.id.F1).getHeight();
+                            sglp.setMargins(0,0,0,20);
                             Log.d("WIDTH", String.valueOf(sglp.width) + " " + String.valueOf(ori_height) + " " + String.valueOf(ori_width) + " " + String.valueOf(sglp.height));
                             break;
                         case TYPE_MIDDLE_THIRD:
-                            sglp.width = (parent.getWidth()) / 3;
-                            sglp.height = sglp.width + view.findViewById(R.id.F1_name).getHeight() + view.findViewById(R.id.F1).getHeight();
-                            view.setPadding(10, 15, 10, 0);
+                            sglp.width = ((parent.getWidth()) - 100) / 3;
+                            sglp.height = sglp.width + view.findViewById(R.id.F1).getHeight();
+                            sglp.setMargins(0,0,0,20);
                             Log.d("WIDTH", String.valueOf(sglp.width) + " " + String.valueOf(ori_height) + " " + String.valueOf(ori_width) + " " + String.valueOf(sglp.height));
                             break;
                         case TYPE_RIGHT_THIRD:
-                            sglp.width = (parent.getWidth()) / 3;
-                            sglp.height = sglp.width + view.findViewById(R.id.F1_name).getHeight() + view.findViewById(R.id.F1).getHeight();
-                            view.setPadding(10, 15, 30, 0);
+                            sglp.width = ((parent.getWidth()) - 100) / 3;
+                            sglp.height = sglp.width + view.findViewById(R.id.F1).getHeight();
+                            sglp.setMargins(0,0,0,20);
                             Log.d("WIDTH", String.valueOf(sglp.width) + " " + String.valueOf(ori_height) + " " + String.valueOf(ori_width) + " " + String.valueOf(sglp.height));
                             break;
                     }
@@ -150,24 +150,21 @@ public class Fragment1RecyclerViewAdapter extends RecyclerView.Adapter<Fragment1
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.name.setText(data.get(position).name);
         holder.price.setText(data.get(position).price);
-        for(int i = 0;i<jsonArray.length();i++) {
-            if(jsonArray.optString(i).equals(data.get(position).code)) {
+        for (int i = 0; i < jsonArray.length(); i++) {
+            if (jsonArray.optString(i).equals(data.get(position).code)) {
                 holder.likeButton.setLiked(true);
             }
         }
         int type = getItemViewType(position);
         switch (type) {
             case TYPE_LEFT_THIRD:
-                Picasso.with(context).load(image_url + data.get(position).image_name + ".png").placeholder(R.drawable.progress_animation).transform(new CircleTransform(10, 0, 30, 0, 0)).into(holder.image);
+                Picasso.with(context).load(image_url + data.get(position).image_name + ".png").placeholder(R.drawable.progress_animation).transform(new CircleTransform(30, 0, 0, 0, 0)).into(holder.image);
                 break;
             case TYPE_MIDDLE_THIRD:
-                Picasso.with(context).load(image_url + data.get(position).image_name + ".png").placeholder(R.drawable.progress_animation).transform(new CircleTransform(10, 0, 30, 0, 0)).into(holder.image);
+                Picasso.with(context).load(image_url + data.get(position).image_name + ".png").placeholder(R.drawable.progress_animation).transform(new CircleTransform(30, 0, 0, 0, 0)).into(holder.image);
                 break;
             case TYPE_RIGHT_THIRD:
-                Picasso.with(context).load(image_url + data.get(position).image_name + ".png").placeholder(R.drawable.progress_animation).transform(new CircleTransform(10, 0, 30, 0, 0)).into(holder.image);
-                break;
-            case TYPE_FULL:
-                Picasso.with(context).load(image_url + data.get(position).image_name + ".png").placeholder(R.drawable.progress_animation).transform(new CircleTransform(10, 30, 30, 30, 0)).into(holder.image);
+                Picasso.with(context).load(image_url + data.get(position).image_name + ".png").placeholder(R.drawable.progress_animation).transform(new CircleTransform(30, 0, 0, 0, 0)).into(holder.image);
                 break;
         }
     }
@@ -214,8 +211,8 @@ public class Fragment1RecyclerViewAdapter extends RecyclerView.Adapter<Fragment1
                             e.printStackTrace();
                         }
                     }
-                    for(int i = 0;i<jsonArray.length();i++) {
-                        if(jsonArray.optString(i).equals(data.get(getAdapterPosition()).code)) {
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        if (jsonArray.optString(i).equals(data.get(getAdapterPosition()).code)) {
                             jsonArray.remove(i);
                         }
                     }

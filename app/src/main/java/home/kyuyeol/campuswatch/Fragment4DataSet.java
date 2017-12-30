@@ -6,7 +6,9 @@ package home.kyuyeol.campuswatch;
 
 public class Fragment4DataSet {
 
-    String name;
     String image_name;
+    String name;
+    String price;
+    String code;
 
 }

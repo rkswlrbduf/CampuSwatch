@@ -41,7 +41,6 @@ public class Fragment1RecyclerViewAdapter extends RecyclerView.Adapter<Fragment1
 
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
-    ArrayList<String> heartList = new ArrayList<String>();
     LayoutInflater inflater;
     List<Fragment1DataSet> data = Collections.emptyList();
     Context context;

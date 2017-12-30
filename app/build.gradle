@@ -34,4 +34,5 @@ dependencies {
     compile 'uk.co.chrisjenx:calligraphy:2.3.0'
     compile 'me.grantland:autofittextview:0.2.+'
     compile 'com.github.jd-alexander:LikeButton:0.2.3'
+    implementation 'com.android.support:cardview-v7:27.0.2'
 }
